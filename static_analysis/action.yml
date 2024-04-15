@@ -1,0 +1,18 @@
+---
+name: Static analysis
+
+description: Run static analysis checks on code for pull requests
+
+inputs:
+  docker-tag:
+    description: Docker image tag to use for running checks
+    default: latest
+
+runs:
+  using: "composite"
+  steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Run static checks
+      uses: docker://ghcr.io/uclahs-cds/cicd-base:${{ inputs.docker-tag }}
