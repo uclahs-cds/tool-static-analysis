@@ -17,6 +17,8 @@ runs:
 
     # https://github.com/orgs/community/discussions/9049#discussioncomment-4239509
     - name: Configure image name
+      shell: bash
+      # FIXME need to inject the environment variable
       run: |
           action_path="${{ github.action_path }}"
           sed -i "s/DOCKER_IMAGE_TAG/$DOCKER_IMAGE_TAG/g" "$action_path/template/action.yml"
