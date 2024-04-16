@@ -7,6 +7,7 @@ inputs:
   docker-tag:
     description: Docker image tag to use for running checks
     default: latest
+    required: false
 
 runs:
   using: "composite"
@@ -14,5 +15,11 @@ runs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    - name: Run static checks
-      uses: docker://ghcr.io/uclahs-cds/cicd-base:${{ inputs.docker-tag }}
+    # https://github.com/orgs/community/discussions/9049#discussioncomment-4239509
+    - name: Configure image name
+      run: |
+          action_path="${{ github.action_path }}"
+          sed -i "s/DOCKER_IMAGE_TAG/$DOCKER_IMAGE_TAG/g" "$action_path/template/action.yml"
+          pwd
+          ls
+          tree
