@@ -24,7 +24,7 @@ runs:
           # There absolutely should not be an 'action.yml' file underneath the
           # .git folder, so we should be able to safely assume we won't be
           # stomping over it
-          sed -"s/DOCKER_IMAGE_TAG/$DOCKER_IMAGE_TAG/g" "$GITHUB_ACTION_PATH/template/action.yml" > ./.git/action.yml
+          sed -e "s/DOCKER_IMAGE_TAG/$DOCKER_IMAGE_TAG/g" "$GITHUB_ACTION_PATH/template/action.yml" > ./.git/action.yml
           cat ./.git/action.yml
 
     - name: Run checks
