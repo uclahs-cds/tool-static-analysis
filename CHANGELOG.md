@@ -1,5 +1,5 @@
 # Changelog
-All notable changes to the Actions and reusable workflows.
+All notable changes to the static analysis Action.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
@@ -9,5 +9,5 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## [Unreleased]
 ### Added
-- README documentation about usage and versioning
-- Action for running static analysis
+- Add README documentation about usage and versioning
+- Bootstrap Action for static analysis
