@@ -28,4 +28,4 @@ runs:
           cat ./.git/action.yml
 
     - name: Run checks
-      uses: ./.git/action.yml
+      uses: ./.git
