@@ -33,11 +33,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: uclahs-cds/tool-automation/static_analyis@v1
+      - uses: uclahs-cds/tool-automations/static_analysis@v1
         # The below is optional and shows the default value
         with:
           docker-tag: latest
-
 ```
 
 
