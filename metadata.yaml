@@ -4,5 +4,6 @@ Description: 'GitHub composite Action to perform static code analysis'
 Maintainers: ['nwiltsie@mednet.ucla.edu']
 Contributors: 'Nicholas Wiltsie'
 Languages: ['python']
+Version: ['1.0.0']  # Tool version number
 Dependencies: ''
 References: ''
