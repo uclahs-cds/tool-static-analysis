@@ -1,21 +1,8 @@
-# Automations for the Boutros Lab
+# Static Code Analysis for the Boutros Lab
 
-This is a repository for common GitHub [custom actions](https://docs.github.com/en/actions/creating-actions/about-custom-actions) and [resuable workflows](https://docs.github.com/en/actions/using-workflows/reusing-workflows) used in the Boutros Lab.
-
-## Description
-
-Per [GitHub's advice](https://docs.github.com/en/actions/creating-actions/about-custom-actions#using-tags-for-release-management) for release management, this repository uses semantic version tags. The key details are:
-
-* Full semantic version tags, such as `v1.0.2`, are immutable and will always refer to the same commit hash.
-* Major version tags, such as `v1` or `v2`, are kept up-to-date with the latest matching semantic version tag.
-
-Callers of these automations should use the latest major version tag (currently `v1`), as that will refer to the most recent stable and backwards-compatible version. Specifying semantic version tags is discouraged unless there is a specific need for absolute reproducibility.
-
-### Actions
-
-#### Static Analysis
 Run static analyses for code style, linting, and repository configuration.
 
+## Usage
 ```yaml
 ---
 name: Static analysis
@@ -33,24 +20,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: uclahs-cds/tool-automations/static_analysis@v1
+      - uses: uclahs-cds/tool-static-analysis@v1
         # The below is optional and shows the default value
         with:
           docker-tag: latest
 ```
 
+## Versioning
 
-### Reusable Workflows
+Per [GitHub's advice](https://docs.github.com/en/actions/creating-actions/about-custom-actions#using-tags-for-release-management) for release management, this repository uses semantic version tags. The key details are:
 
-#### Workflow 1
+* Full semantic version tags, such as `v1.0.2`, are immutable and will always refer to the same commit hash.
+* Major version tags, such as `v1` or `v2`, are kept up-to-date with the latest matching semantic version tag.
 
+Callers should use the latest major version tag (currently `v1`), as that will refer to the most recent stable and backwards-compatible version. Specifying semantic version tags is discouraged unless there is a specific need for absolute reproducibility.
 
 
 ## License
 
 Author: Nicholas Wiltsie (nwiltsie@mednet.ucla.edu)
 
-tool-automations is licensed under the GNU General Public License version 2. See the file LICENSE.md for the terms of the GNU GPL license.
+tool-static-analysis is licensed under the GNU General Public License version 2. See the file LICENSE.md for the terms of the GNU GPL license.
 
 GitHub automations common to the Boutros Lab repositories.
 
