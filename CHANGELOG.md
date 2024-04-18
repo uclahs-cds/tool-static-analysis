@@ -8,6 +8,12 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 ---
 
 ## [Unreleased]
+
+## Changed
+- "Dogfood" action to check itself
+
+## [v1.0.0] - 2024-04-18
+
 ### Added
 - Add README documentation about usage and versioning
 - Bootstrap Action for static analysis
