@@ -5,7 +5,7 @@ Run static analyses for code style, linting, and repository configuration.
 ## Usage
 ```yaml
 ---
-name: Static analysis
+name: CI
 
 on:
   push:
@@ -16,7 +16,7 @@ on:
       - main
 
 jobs:
-  analysis:
+  static-analysis:
     runs-on: ubuntu-latest
 
     steps:
