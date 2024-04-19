@@ -15,9 +15,9 @@ runs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    # The exact version doesn't matter, so just use whatever is already
-    # available in the runner
     - uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
 
     # https://github.com/orgs/community/discussions/9049#discussioncomment-4239509
     # Due to limitations on composite Actions, we can't do something like:
