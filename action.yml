@@ -15,6 +15,10 @@ runs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
+    # The exact version doesn't matter, so just use whatever is already
+    # available in the runner
+    - uses: actions/setup-python@v5
+
     # https://github.com/orgs/community/discussions/9049#discussioncomment-4239509
     # Due to limitations on composite Actions, we can't do something like:
     # - uses: docker://ghcr.io/uclahs-cds/cicd-base:${{ inputs.docker-tag }}
@@ -22,29 +26,9 @@ runs:
     # There absolutely should not be an 'action.yml' file underneath the .git
     # folder of the calling repository already, so we can use that.
     - name: Configure workflow
-      shell: python
       env:
         DOCKER_IMAGE_TAG: ${{ inputs.docker-tag }}
-      run: |
-          import os
-          import re
-          from pathlib import Path
-
-          # Bail out if there are any illegal characters in the tag
-          tag = os.environ.get("DOCKER_IMAGE_TAG")
-          if re.search(r"[^a-zA-Z0-9_.\-]", tag):
-              raise ValueError(f"Problem with the tag `{tag}`!")
-
-          template = Path(
-              os.environ.get("GITHUB_ACTION_PATH"), "template", "action.yml"
-          )
-
-          Path(".git/action.yml").write_text(
-              template.read_text(encoding="utf-8").replace(
-                  "DOCKER_IMAGE_TAG", tag
-              ),
-              encoding="utf-8"
-          )
+      run: python '${{ github.action_path }}/create_template.py'
 
     - name: Run checks
       uses: ./.git
