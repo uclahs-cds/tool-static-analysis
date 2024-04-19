@@ -28,6 +28,7 @@ runs:
     - name: Configure workflow
       env:
         DOCKER_IMAGE_TAG: ${{ inputs.docker-tag }}
+      shell: bash
       run: python '${{ github.action_path }}/create_template.py'
 
     - name: Run checks
