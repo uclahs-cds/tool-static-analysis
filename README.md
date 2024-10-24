@@ -1,5 +1,7 @@
 # Static Code Analysis for the Boutros Lab
 
+[![GitHub release](https://img.shields.io/github/v/release/uclahs-cds/tool-static-analysis)](https://github.com/uclahs-cds/tool-static-analysis/actions/workflows/prepare-release.yaml)
+
 Run static analyses for code style, linting, and repository configuration.
 
 ## Usage
