@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"Generate an action.yml file from the template."
+"""Generate an action.yml file from the template."""
+
 import os
 import re
 from pathlib import Path
@@ -13,8 +14,6 @@ template = Path(os.environ.get("GITHUB_ACTION_PATH"), "template", "action.yml")
 output_file = Path(os.environ.get("GITHUB_WORKSPACE"), ".git", "action.yml")
 
 output_file.write_text(
-    template.read_text(encoding="utf-8").replace(
-        "DOCKER_IMAGE_TAG", tag
-    ),
-    encoding="utf-8"
+    template.read_text(encoding="utf-8").replace("DOCKER_IMAGE_TAG", tag),
+    encoding="utf-8",
 )
