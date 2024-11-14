@@ -25,8 +25,7 @@ runs:
       run: |
         docker run \
           --rm \
-          -e GITHUB_WORKSPACE \
-          -v "${{ github.workspace}}:/github/workspace" \
+          -v "${{ github.workspace}}:/tmp/lint" \
           -v "/var/run/docker.sock:/var/run/docker.sock:rw" \
           oxsecurity/megalinter:beta
 
