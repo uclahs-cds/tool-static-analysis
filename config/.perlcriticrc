@@ -1,0 +1,35 @@
+severity  = gentle
+only      = 1
+force     = 0                                     
+verbose   = 4                                     
+top       = 50                                    
+theme     = (pbp || security) && bugs             
+include   = NamingConventions ClassHierarchies    
+exclude   = Variables  Modules::RequirePackage    
+criticism-fatal = 1                               
+color     = 1                                     
+allow-unsafe = 1
+
+[Perl::Critic::Policy::Documentation::UseStrictCheck]
+add_themes = boutros_lab
+
+[Perl::Critic::Policy::Documentation::IndentationCheck]
+add_themes = boutros_lab
+
+[Perl::Critic::Policy::Documentation::UseCarpCheck]
+add_themes = boutros_lab
+
+[Perl::Critic::Policy::Documentation::SwappedConditional]
+add_themes = boutros_lab
+
+[Perl::Critic::Policy::Documentation::HashAssignmentReadability]
+add_themes = boutros_lab
+
+[Perl::Critic::Policy::Documentation::HangingComma]
+add_themes = boutros_lab
+
+[Perl::Critic::Policy::Documentation::ConditionPaddingReadability]
+add_themes = boutros_lab
+
+[Perl::Critic::Policy::Documentation::ArrowOperatorReadability]
+add_themes = boutros_lab
