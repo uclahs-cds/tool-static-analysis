@@ -3,12 +3,6 @@ name: Perform static analyses
 
 description: Run static analysis checks on code for pull requests
 
-inputs:
-  docker-tag:
-    description: Docker image tag to use for running checks
-    default: latest
-    required: false
-
 runs:
   using: "composite"
   steps:
@@ -17,19 +11,29 @@ runs:
 
     - uses: actions/setup-python@v5
       with:
-        python-version: '3.10'
+        python-version: "3.10"
 
-    # https://github.com/orgs/community/discussions/9049#discussioncomment-4239509
-    # Due to limitations on composite Actions, we can't do something like:
-    # - uses: docker://ghcr.io/uclahs-cds/cicd-base:${{ inputs.docker-tag }}
-    # Instead, we need to write another action.yml on-the-fly and then use that.
-    # There absolutely should not be an 'action.yml' file underneath the .git
-    # folder of the calling repository already, so we can use that.
-    - name: Configure workflow
-      env:
-        DOCKER_IMAGE_TAG: ${{ inputs.docker-tag }}
+    - name: Fill default configuration files
       shell: bash
-      run: python '${{ github.action_path }}/create_template.py'
+      run: python '${{ github.action_path }}/fill_configs.py' '${{ github.workspace }}'
 
-    - name: Run checks
-      uses: ./.git
+      # MegaLinter
+    - name: Run Megalinter
+      env:
+        VALIDATE_ALL_CODEBASE: true
+      run: |
+        docker run \
+          --rm \
+          -v "${{ github.workspace}}:/github/workspace" \
+          -v "/var/run/docker.sock:/var/run/docker.sock:rw" \
+          oxsecurity/megalinter@beta
+
+    # Upload MegaLinter artifacts
+    - name: Archive production artifacts
+      if: success() || failure()
+      uses: actions/upload-artifact@v4
+      with:
+        name: MegaLinter reports
+        path: |
+          megalinter-reports
+          mega-linter.log
