@@ -19,6 +19,7 @@ runs:
 
       # MegaLinter
     - name: Run Megalinter
+      shell: bash
       env:
         VALIDATE_ALL_CODEBASE: true
       run: |
