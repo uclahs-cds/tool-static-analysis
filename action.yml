@@ -15,7 +15,7 @@ runs:
 
     - name: Fill default configuration files
       shell: bash
-      run: python '${{ github.action_path }}/fill_configs.py' '${{ github.workspace }}'
+      run: python '${{ github.action_path }}/fill_configs.py' '${{ github.action_path }}/config' '${{ github.workspace }}'
 
       # MegaLinter
     - name: Run Megalinter
