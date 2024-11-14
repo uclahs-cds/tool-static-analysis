@@ -1,9 +1,0 @@
----
-name: Static analysis implementation
-
-description: Run static analysis checks on code for pull requests
-runs:
-  using: "composite"
-  steps:
-    - name: Run static checks
-      uses: docker://ghcr.io/uclahs-cds/cicd-base:DOCKER_IMAGE_TAG
