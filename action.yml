@@ -27,7 +27,7 @@ runs:
           --rm \
           -v "${{ github.workspace}}:/tmp/lint" \
           -v "/var/run/docker.sock:/var/run/docker.sock:rw" \
-          oxsecurity/megalinter:beta
+          ghcr.io/nwiltsie/megalinter-bioinformatics:beta
 
     # Upload MegaLinter artifacts
     - name: Archive production artifacts
