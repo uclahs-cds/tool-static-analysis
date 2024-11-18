@@ -42,6 +42,7 @@ runs:
           -e GITHUB_RUN_ID \
           -e GITHUB_RUN_NUMBER \
           -e GITHUB_SERVER_URL \
+          -e GITHUB_SHA \
           -e GITHUB_TOKEN \
           -e GITHUB_WORKFLOW \
           -e GITHUB_WORKSPACE:/tmp/lint \
