@@ -1,0 +1,17 @@
+{
+    "problemMatcher": [
+        {
+            "owner": "jsonlint",
+            "severity": "warning",
+            "pattern": [
+                {
+                    "regexp": "^(.+): line (\\d+), col (\\d+), (found:.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "message": 4
+                }
+            ]
+        }
+    ]
+}
