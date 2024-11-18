@@ -1,4 +1,7 @@
 ---
+BASH_SHELLCHECK_ARGUMENTS:
+  - --format
+  - gcc
 ENABLE:
   - ACTION
   - BASH
