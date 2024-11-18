@@ -5,7 +5,7 @@
             "severity": "warning",
             "pattern": [
                 {
-                    "regexp": "^(.+):(\\d+):(\\d+): (\\w+): (.*)$",
+                    "regexp": "^(?:\\/tmp\\/lint\\/)?(.+):(\\d+):(\\d+): (\\w+): (.*)$",
                     "file": 1,
                     "line": 2,
                     "column": 3,
