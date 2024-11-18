@@ -23,7 +23,7 @@ runs:
       env:
         VALIDATE_ALL_CODEBASE: true
       run: |
-        for file in ${{ github.action_path}}/config/matchers/*; do
+        for file in ${{ github.action_path}}/matchers/*; do
           if [ -f "$file" ]; then
             echo "::add-matcher::$(realpath "$file")"
           fi

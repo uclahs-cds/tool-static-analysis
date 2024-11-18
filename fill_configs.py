@@ -55,7 +55,7 @@ def copy_configs(config_path: Path, workspace: Path):
     for configfile in config_path.iterdir():
         dest_file = workspace / configfile.name
 
-        if not dest_file.exists():
+        if not dest_file.exists() and configfile.is_file():
             shutil.copyfile(configfile, dest_file)
             logger.info("Copying fallback %s", configfile.name)
         else:
