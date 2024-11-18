@@ -23,6 +23,7 @@ runs:
       env:
         VALIDATE_ALL_CODEBASE: true
       run: |
+        env
         docker run \
           --rm \
           -e GITHUB_ACTION \
