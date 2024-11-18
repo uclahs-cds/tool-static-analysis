@@ -17,17 +17,21 @@ runs:
       shell: bash
       run: python '${{ github.action_path }}/fill_configs.py' '${{ github.action_path }}/config' '${{ github.workspace }}'
 
-      # MegaLinter
-    - name: Run Megalinter
+    - name: Install problem matchers
       shell: bash
-      env:
-        VALIDATE_ALL_CODEBASE: true
       run: |
         for file in ${{ github.action_path}}/matchers/*; do
           if [ -f "$file" ]; then
             echo "::add-matcher::$(realpath "$file")"
           fi
         done
+
+      # MegaLinter
+    - name: Run Megalinter
+      shell: bash
+      env:
+        VALIDATE_ALL_CODEBASE: true
+      run: |
         docker run \
           --rm \
           -e VALIDATE_ALL_CODEBASE \
