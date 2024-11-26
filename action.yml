@@ -26,7 +26,13 @@ runs:
           fi
         done
 
-      # MegaLinter
+    - uses: docker/login-action@v3
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+
+    # MegaLinter
     - name: Run Megalinter
       shell: bash
       env:
