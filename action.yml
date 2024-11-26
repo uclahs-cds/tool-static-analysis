@@ -37,7 +37,7 @@ runs:
           -e VALIDATE_ALL_CODEBASE \
           -v "${{ github.workspace}}:/tmp/lint" \
           -v "/var/run/docker.sock:/var/run/docker.sock:rw" \
-          ghcr.io/nwiltsie/megalinter-bioinformatics:beta
+          ghcr.io/uclahs-cds/bl-megalinter:beta
 
     # Upload MegaLinter artifacts
     - name: Archive production artifacts
