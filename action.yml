@@ -15,7 +15,9 @@ runs:
 
     - name: Fill default configuration files
       shell: bash
-      run: python '${{ github.action_path }}/fill_configs.py' '${{ github.action_path }}/config' '${{ github.workspace }}'
+      run: |
+        pip install ruamel.yaml
+        python '${{ github.action_path }}/fill_configs.py' '${{ github.action_path }}/config' '${{ github.workspace }}'
 
     - name: Install problem matchers
       shell: bash
