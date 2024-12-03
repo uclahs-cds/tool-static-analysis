@@ -9,51 +9,12 @@ from pathlib import Path
 
 from ruamel.yaml import YAML
 
-NOTICE = 25
-
-
-class GHAFilter(logging.Filter):
-    """A logging filter that plays nice with GitHub Actions output."""
-
-    # pylint: disable=too-few-public-methods
-
-    prefixes = {
-        logging.DEBUG: "::debug::",
-        logging.INFO: "",
-        NOTICE: "::notice::",
-        logging.WARNING: "::warning::",
-        logging.ERROR: "::error::",
-        logging.CRITICAL: "::error::",
-    }
-
-    def filter(self, record):
-        record.ghaprefix = self.prefixes[record.levelno]
-        return True
-
-
-def setup_logging() -> logging.Logger:
-    """Set up logging to GitHub Actions.logger."""
-    root_logger = logging.getLogger(__name__.rpartition(".")[0])
-
-    # Does this need to be re-entrant like this?
-    if logging.getLevelName("NOTICE") != NOTICE:
-        logging.addLevelName(NOTICE, "NOTICE")
-
-        handler = logging.StreamHandler()
-        handler.setLevel(logging.DEBUG)
-        handler.setFormatter(logging.Formatter("%(ghaprefix)s%(message)s"))
-        handler.addFilter(GHAFilter())
-
-        # Set these handlers on the root logger of this module
-        root_logger.addHandler(handler)
-        root_logger.setLevel(logging.DEBUG)
-
-    return root_logger
+from analysishelper import setup_logging
 
 
 def copy_configs(config_path: Path, workspace: Path):
     """Copy, without overwriting, all config files into the repository."""
-    logger = setup_logging()
+    logger = setup_logging(__name__)
     for configfile in config_path.iterdir():
         if not configfile.is_file():
             continue
