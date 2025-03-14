@@ -6,7 +6,7 @@ description: Run static analysis checks on code for pull requests
 inputs:
   docker-tag:
     description: Docker image tag to use for running checks
-    default: latest
+    default: v1.0.0
     required: false
 
 runs:

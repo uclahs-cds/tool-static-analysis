@@ -12,6 +12,7 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 ## Changed
 - "Dogfood" action to check itself
 - Move python code out of workflow file
+- Change default docker tag from `latest` to `v1.0.0`
 
 ## [v1.0.0] - 2024-04-18
 
