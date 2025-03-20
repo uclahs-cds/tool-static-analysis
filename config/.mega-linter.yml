@@ -13,6 +13,7 @@ ENABLE:
   - PYTHON
   - R
   - YAML
+  - UCLAHS
 JSON_REPORTER: true
 JSON_REPORTER_OUTPUT_DETAIL: detailed
 FILTER_REGEX_EXCLUDE: (metadata.yaml)
@@ -35,3 +36,6 @@ DISABLE_ERRORS_LINTERS:
   - JSON_PRETTIER
   - JSON_V8R
 YAML_YAMLLINT_FILTER_REGEX_EXCLUDE: (\.github\/workflows\/)
+
+PLUGINS:
+  - file://../tool-static-analysis/mega-linter-plugin-uclahs/uclahs.megalinter-descriptor.yml

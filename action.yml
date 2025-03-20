@@ -37,6 +37,7 @@ runs:
         docker run \
           --rm \
           -e VALIDATE_ALL_CODEBASE \
+          -v "${{ github.action_path }}:/tmp/tool-static-analysis" \
           -v "${{ github.workspace}}:/tmp/lint" \
           -v "/var/run/docker.sock:/var/run/docker.sock:rw" \
           ghcr.io/nwiltsie/bl-megalinter:beta
