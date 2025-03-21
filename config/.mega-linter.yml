@@ -37,5 +37,7 @@ DISABLE_ERRORS_LINTERS:
   - JSON_V8R
 YAML_YAMLLINT_FILTER_REGEX_EXCLUDE: (\.github\/workflows\/)
 
+JSON_V8R_FILTER_REGEX_INCLUDE: (\.github\/)
+
 PLUGINS:
   - file://../tool-static-analysis/mega-linter-plugin-uclahs/uclahs.megalinter-descriptor.yml
