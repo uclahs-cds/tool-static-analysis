@@ -3,6 +3,11 @@
 BASH_SHELLCHECK_ARGUMENTS:
   - --format
   - gcc
+
+BASH_SHFMT_ARGUMENTS:
+  - -i
+  - 4
+
 ENABLE:
   - ACTION
   - BASH
