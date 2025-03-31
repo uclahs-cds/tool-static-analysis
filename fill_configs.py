@@ -15,6 +15,7 @@ from analysishelper import setup_logging
 def copy_configs(config_path: Path, workspace: Path):
     """Copy, without overwriting, all config files into the repository."""
     logger = setup_logging(__name__)
+
     for configfile in config_path.iterdir():
         if not configfile.is_file():
             continue

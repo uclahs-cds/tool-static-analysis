@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """Check that all of templated text has been removed from the README."""
 import sys
 import re
