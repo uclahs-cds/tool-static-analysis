@@ -51,6 +51,3 @@ YAML_YAMLLINT_FILTER_REGEX_EXCLUDE: (\.github\/workflows\/)
 JSON_V8R_FILTER_REGEX_INCLUDE: (\.github\/)
 
 IGNORE_GENERATED_FILES: true
-
-PLUGINS:
-  - file://../tool-static-analysis/mega-linter-plugin-uclahs/uclahs.megalinter-descriptor.yml
